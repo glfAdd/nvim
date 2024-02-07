@@ -139,23 +139,56 @@
 
 local HOME = os.getenv "HOME"
 local DEBUGGER_LOCATION = HOME .. "/.local/share/nvim"
+local maver_setting = HOME .. '/.m2/settings.xml'
 -- Debugging
 local bundles = {
     vim.fn.glob(
-      DEBUGGER_LOCATION .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+            DEBUGGER_LOCATION .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
     ),
-  }
+}
 vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUGGER_LOCATION .. "/vscode-java-test/server/*.jar"), "\n"))
 -- jdtls 通过mason安装
 local config = {
-    cmd = {DEBUGGER_LOCATION .. '/mason/bin/jdtls'},
-    root_dir =vim.fs.dirname(vim.fs.find({'.git','mvnw','gradlew'},{upward=true})[1]),
+    cmd = { DEBUGGER_LOCATION .. '/mason/bin/jdtls' },
+    root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'mvnw', 'gradlew' }, { upward = true })[1]),
     init_options = {
         bundles = bundles
     },
+    --settings = {
+    --    java = {
+    --        home = '/Users/glfadd/.sdkman/candidates/java/8.0.392-amzn',
+    --        eclipse = {
+    --            downloadSources = true,
+    --        },
+    --        server = {
+    --            launchMode = "Hybrid",
+    --        },
+    --        maven = {
+    --            downloadSources = true,
+    --            updateSnapshots = true,
+    --        },
+    --        configuration = {
+    --            maven = {
+    --                userSettings = maver_setting,
+    --                globalSettings = maver_setting
+    --            },
+    --            runtimes = {
+    --                {
+    --                    name = "java8",
+    --                    path = "/Users/glfadd/.sdkman/candidates/java/8.0.392-amzn",
+    --                },
+    --                -- {
+    --                --   name = "JavaSE-17",
+    --                --   path = "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home",
+    --                -- },
+    --            }
+    --        }
+    --    }
+    --}
+    --
 }
-config.on_attach = function(client,bufnr)
-    require("jdtls").setup_dap {hotcodereplace = "auto"}
+config.on_attach = function(client, bufnr)
+    require("jdtls").setup_dap { hotcodereplace = "auto" }
     require("jdtls").setup.add_commands()
     require("jdtls.dap").setup_dap_main_class_configs()
 end

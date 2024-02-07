@@ -1,14 +1,5 @@
 --[[
-ftplugin 配置文件目录
-    java.lua
-    python.lua
-
-路径不能使用相对路径, 必须用绝对路径
-
--- 当前路径
-local cwd = vim.fn.getcwd()
-
-
+自动加载 ftplugin 目录下 *.lua 配置文件 (java.lua python.lua)
 
 -- ......................................... dap.configurations.java
 type
@@ -28,16 +19,11 @@ request
     stackTrace: 请求有关当前堆栈帧的信息。
     scopes: 请求有关特定堆栈帧中的变量的信息。
     variables: 请求有关变量的信息。
-
-
-
-
-
-
-
-
 --]]
 
+local HOME = os.getenv "HOME"
+-- 加载 json 配置文件
+--require('dap.ext.vscode').load_launchjs(HOME .. '/.config/nvim/json-config/java.json')
 
 local dap = require("dap")
 -- ......................................... java
@@ -56,18 +42,22 @@ local dap = require("dap")
 --    {
 --        type = 'java',
 --        request = 'launch',
---        name = 'Launch Java Process',
+--        name = 'kkkkkkkkkk',
 --        cwd = '${workspaceFolder}',
---        console = 'externalTerminal',
+--        console = 'integratedTerminal',
 --        --mainClass = 'your.package.YourMainClass',
---        mainClass = function()
---            local current_file = vim.fn.expand('%:p:r')
---            local class_file = current_file:gsub('/', '.')
---            return class_file
---        end,
+--        --mainClass = function()
+--        --    local current_file = vim.fn.expand('%:p:r')
+--        --    local class_file = current_file:gsub('/', '.')
+--        --    return class_file
+--        --end,
 --        javaPath = '/Users/glfadd/.sdkman/candidates/java/8.0.392-amzn/java', -- 可选，指定 Java 可执行文件路径
---        classPaths = { '${workspaceFolder}/bin' },
---        sourcePaths = { '${workspaceFolder}/src' },
+--        mainClass = "${fileBasenameNoExtension}",
+--        --projectRoot = "${workspaceFolder}",
+--        projectRoot = vim.fn.getcwd(),
+--        vmArgs = { '--enable-preview' }
+--        --classPaths = { '${workspaceFolder}/bin' },
+--        --sourcePaths = { '${workspaceFolder}/src' },
 --    },
 --}
 --

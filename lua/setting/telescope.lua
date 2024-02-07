@@ -1,10 +1,11 @@
 require("telescope").setup({
     defaults = {
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical", -- vertical horizontal
         layout_config = {
             height = 0.95, -- 边框距离
             width = 0.95, -- 边框距离
-            preview_width = 0.5, -- 左右比例
+            --preview_width = 0.5, -- 左右比例, 垂直策略不支持的 preview_width
+            preview_height = 0.6, -- 上下比例
         },
     },
     pickers = {

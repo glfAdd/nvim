@@ -13,6 +13,9 @@ return require("packer").startup(function(use)
     use { "goolord/alpha-nvim", requires = { 'nvim-tree/nvim-web-devicons' }, config = function()
         require("setting.alpha-nvim")
     end }
+    --use { 'nvimdev/dashboard-nvim', requires = { 'nvim-tree/nvim-web-devicons' }, event = 'VimEnter', config = function()
+    --    require("setting.dashboard-nvim")
+    --end }
     -- ......................................... 文件树
     use { "kyazdani42/nvim-tree.lua", requires = 'kyazdani42/nvim-web-devicons', config = function()
         require("setting.nvim-tree")
@@ -89,7 +92,7 @@ return require("packer").startup(function(use)
     use { 'lukas-reineke/cmp-under-comparator' } -- 一个或多个下划线开头的完成项进行排序
     -- ......................................... lsp ui 增强
     use { "glepnir/lspsaga.nvim", after = 'nvim-lspconfig', config = function()
-        require("setting.lspsaga-nvim")
+        require("setting.lspsaga")
     end }
     -- ......................................... 语法错误列表
     use { "folke/trouble.nvim", requires = { 'nvim-tree/nvim-web-devicons' }, config = function()
@@ -156,7 +159,9 @@ return require("packer").startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, config = function()
         require("setting.dap-ui")
     end }
-    use { "theHamsta/nvim-dap-virtual-text" } -- 在调试过程中，在变量附近事实显示变量的值
+    use { "theHamsta/nvim-dap-virtual-text", config = function()
+        require("setting.nvim-dap-virtual-text")
+    end } -- 在调试过程中，在变量附近事实显示变量的值
     use { "mfussenegger/nvim-dap-python" } -- python
     use { "nvim-java/nvim-java" }
     use { "nvim-java/lua-async-await" }
@@ -173,16 +178,13 @@ return require("packer").startup(function(use)
     ----    run = function() vim.fn['firenvim#install'](0) end
     ----  }
 
-    ---- markdown
-    ---- use {
-    ----   'preservim/vim-markdown',
-    ----   requires = {'godlygeek/tabular'},
-    ----   -- config = function()
-    ----   --   require('setting.alpha-nvim')
-    ----   -- end
-    ---- }
+    -- markdown
+    --use {
+    --    'preservim/vim-markdown',
+    --    requires = { 'godlygeek/tabular' },
+    --}
     ---- use 'iamcco/markdown-preview.nvim' -- 浏览器预览 markdown
-    ---
+
     ---- ......................................... 字典
     --use { "voldikss/vim-translator", config = function()
     --    require("setting.translator")

@@ -2,24 +2,29 @@
 
 - [ ] https://martinlwx.github.io/zh-cn/config-neovim-from-scratch/ lsp
 - [ ] https://zhuanlan.zhihu.com/p/480081983 成品例子
-- [ ] https://zhuanlan.zhihu.com/p/438380547 系列
+- [x] https://zhuanlan.zhihu.com/p/438380547 系列
 - [ ] https://zhuanlan.zhihu.com/p/577413629 lsp dap
-- [ ] https://zhuanlan.zhihu.com/p/661482848 1
+- [x] https://zhuanlan.zhihu.com/p/661482848 1
 - [ ] https://zhuanlan.zhihu.com/p/661901458 2
 - [ ] https://zhuanlan.zhihu.com/p/662843534 3 lsp
 - [ ] https://zhuanlan.zhihu.com/p/665219554 4
-- [ ] https://www.zhihu.com/tardis/bd/art/441818052?source_id=1001 功能
+- [x] https://www.zhihu.com/tardis/bd/art/441818052?source_id=1001 nvim-treesitter
 - [ ] https://github.com/JavaHello/nvim/tree/nvim-lsp?tab=readme-ov-file 参考配置
-- [x] https://www.cnblogs.com/w4ngzhen/p/17546969.html cmp
+- [ ] https://www.cnblogs.com/w4ngzhen/p/17546969.html cmp
 - [ ] https://juejin.cn/post/7154005621887631396 mason
 - [ ] https://zhuanlan.zhihu.com/p/382092667 成品例子
 - [ ] https://zhuanlan.zhihu.com/p/664398831 成品例子 2023.10
-- [ ] https://juejin.cn/post/7244526264617730108 spring maven (安装时 java 版本有要求)
+- [x] https://juejin.cn/post/7244526264617730108 spring maven (安装时 java 版本有要求)
 - [ ] https://github.com/alpha2phi/neovim-for-beginner/blob/33-java-debug/after/ftplugin/java.lua spring 原版项目
 - [ ] 参考 https://github.com/mfussenegger/nvim-jdtls/discussions/585
 - [ ] https://blog.csdn.net/lxyoucan/article/details/123448313 成品例子
 - [ ] https://github.com/wenjinnn/config/tree/6c3a91c2c1071689025ff170803d70290954734b/nvim/plugin 成品例子
 - [ ] https://sookocheff.com/post/vim/neovim-java-ide/ 例子 英文
+- [ ] https://zhuanlan.zhihu.com/p/388397656 成品例子
+- [ ] https://cloud.tencent.com/developer/article/2203813 dap 使用 (重点)
+- [ ] https://cloud.tencent.com/developer/search/article-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AEvim 系列
+- [ ] https://blog.csdn.net/lanuage/article/details/128477039 dap
+- [ ] 
 
 插件安装慢配置 github host
 
@@ -40,8 +45,6 @@ nvim 配置文件路径
 ```
 
 ### 依赖
-
-
 
 ##### nerd-fonts
 
@@ -235,8 +238,6 @@ unique:
 示例： { unique = true }
 ```
 
-
-
 ### 插件管理
 
 ##### packer.nvim - 插件管理
@@ -289,7 +290,9 @@ italic - true or false for italic font
 
 [ASCII艺术字](https://www.bootschool.net/ascii-art)
 
+##### dashboard-nvim - 启动页面
 
+[github](https://github.com/nvimdev/dashboard-nvim)
 
 ```
 
@@ -417,7 +420,7 @@ LSP 服务器、DAP 服务器、 通过单个界面进行短绒检查和格式�
 
 ```
 
-##### lspsaga.nvim - lsp 增强
+##### lspsaga.nvim - lsp 增强 (功能很全)
 
 [github](https://github.com/nvimdev/lspsaga.nvim)
 
@@ -470,19 +473,52 @@ LSP 服务器、DAP 服务器、 通过单个界面进行短绒检查和格式�
    $ npm install && npm run build-plugin
    ```
 
-方式 1: 使用 nvim-jdtls
-
-方式 2: 使用其他 lsp 客户端
-
-
-
-
-
 ###### python
 
+###### lua
+
+###### golang
+
+##### nvim-dap-ui 
+
+[github](https://github.com/rcarriga/nvim-dap-ui)
+
 ```
+按键映射
+edit：e
+expand:<CR>或左键单击
+open：o
+remove：d
+repl：r
+toggle：t
 
 
+Variable Scopes(变量)
+  edit：编辑变量的值
+  expand：切换显示变量的任何子项。
+  repl: 将变量发送到 REPL
+
+
+Threads and Stack Frames(线程和堆栈帧)
+  open: 跳转到栈帧内的某个位置。
+  toggle: 切换显示细微帧
+
+
+
+Watch Expressions(线程和堆栈帧 - 详细)
+  expand：切换显示表达式的子项。
+  remove：删除观看的表情。
+  edit：编辑表达式或设置子变量的值。
+  repl：将表达式发送到REPL
+
+Breakpoints (断点)
+  open：跳转到设置断点的位置
+  toggle：启用/禁用所选断点
+
+
+REPL (REPL)
+Console (终端控制台)
+元素 ID：console
 ```
 
 
@@ -557,6 +593,18 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 [github](https://github.com/folke/trouble.nvim)
 
+##### 会话
+
+```
+打开编辑时, 恢复到上次的状态
+
+保存回话, 会生成 Session.vim 文件
+:mksession
+
+恢复回话
+:source Session.vim
+```
+
 
 
 ### springboot
@@ -593,10 +641,7 @@ https://github.com/nvim-java/nvim-java
 
 
 
-其他文档
 
-- [ ] https://zhuanlan.zhihu.com/p/388397656
-- [ ] 
 
 ### 问题
 
@@ -651,6 +696,37 @@ java 跳转函数时报错
 解决办法:
 安装 mfussenegger/nvim-jdtls 插件
 ```
+
+### vscode launch.json
+
+##### 参数
+
+```
+"type"：指定调试器的类型，例如 "node" 表示 Node.js 调试器，"python" 表示 Python 调试器，"java" 表示 Java 调试器等。
+"request"：指定调试的请求类型，可以是 "launch"（启动一个新的进程）或 "attach"（附加到已有的进程）。
+"name"：为配置提供一个友好的名称，方便识别不同的调试配置。
+"program"：用于指定程序的入口文件路径，可以是绝对路径或相对于工作目录的路径。
+"args"：传递给程序的命令行参数，以数组形式提供。
+"cwd"：指定程序的工作目录，可以是绝对路径或相对于工作目录的路径。
+"env"：设置程序运行时的环境变量，以对象形式提供。
+"stopOnEntry"：设置为 true 时，在启动后会在入口处停止，等待调试器连接。
+"preLaunchTask"：指定在启动调试前运行的任务，通常是一个编译任务。
+"postDebugTask"：指定在调试结束后运行的任务，比如清理任务。
+"outFiles"：设置输出文件的路径，用于映射源代码和编译后的文件。
+"sourceMaps"：控制是否启用源代码映射，可以是 "inline"、"both" 或 "false"。
+"sourceMapPathOverrides"：用于根据源代码映射调整文件路径。
+"externalConsole"：设置为 true 时，将在外部控制台中运行程序。
+"internalConsoleOptions"：控制内部控制台的显示方式，可以是 "neverOpen"、"openOnSessionStart" 或 "openOnFirstSessionStart"。
+"showAsyncStacks"：设置为 true 时，在堆栈跟踪中显示异步调用的信息。
+"stopOnError"：设置为 true 时，当发生错误时暂停调试。
+"smartStep"：设置为 true 时，跳过无需调试的代码。
+"skipFiles"：指定不需要调试的文件或文件夹。
+"justMyCode"：设置为 true 时，只调试自己的代码。
+```
+
+
+
+# 开发项目
 
 ##### 失败解决办法
 

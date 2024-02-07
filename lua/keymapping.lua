@@ -6,10 +6,10 @@ local opt = { noremap = true, silent = true }
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 -- 调整分屏尺寸
-map("n", "<M-up>", "<cmd>resize +2<CR>", opt)
-map("n", "<M-down>", "<cmd>resize -2<CR>", opt)
-map("n", "<M-left>", "<cmd>vertical resize +3<CR>", opt)
-map("n", "<M-right>", "<cmd>vertical resize -3<CR>", opt)
+map("n", "<M-up>", "<cmd>resize -2<CR>", opt)
+map("n", "<M-down>", "<cmd>resize +2<CR>", opt)
+map("n", "<M-left>", "<cmd>vertical resize -3<CR>", opt)
+map("n", "<M-right>", "<cmd>vertical resize +3<CR>", opt)
 -- 分屏切换
 map("n", "<M-l>", "<c-w>l", opt)
 map("n", "<M-h>", "<c-w>h", opt)
@@ -21,7 +21,8 @@ map("n", "<leader>[", "<cmd>BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>]", "<cmd>BufferLineCycleNext<CR>", opt)
 map("n", "<leader>bc", "<cmd>bd<CR>", opt) -- close
 map("n", "<leader>bn", "<cmd>enew<CR>", opt) -- new
-map("n", "<leader>bp", "<cmd>BufferLinePickClose<CR>", opt)
+map("n", "<leader>bP", "<cmd>BufferLinePickClose<CR>", opt)
+map("n", "<leader>bp", "<cmd>BufferLinePick<CR>", opt)
 map("n", "<leader>bl", "<cmd>BufferLineCloseLeft<CR>", opt) -- 关闭左边
 map("n", "<leader>br", "<cmd>BufferLineCloseRight<CR>", opt) -- 关闭右边
 map("n", "<leader>ba", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>", opt) -- 关闭除当前所有

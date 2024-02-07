@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Current File 2",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "${command:java.getMainClass}",
+      "vmArgs": "--enable-preview"
+    },
+    {
+      "type": "java",
+      "name": "A 3",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "A",
+      "projectName": "nvim_93f0f384",
+      "vmArgs": "--enable-preview"
+    }
+  ]
+}
