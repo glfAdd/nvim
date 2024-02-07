@@ -438,6 +438,8 @@ LSP 服务器、DAP 服务器、 通过单个界面进行短绒检查和格式�
 
 ##### nvim-dap
 
+> 日志路径 `~/.cache/nvim/dap.log`
+
 [github](https://github.com/mfussenegger/nvim-dap)
 
 ###### java

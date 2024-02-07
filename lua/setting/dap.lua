@@ -23,9 +23,9 @@ request
 
 local HOME = os.getenv "HOME"
 -- 加载 json 配置文件
---require('dap.ext.vscode').load_launchjs(HOME .. '/.config/nvim/json-config/java.json')
+require('dap.ext.vscode').load_launchjs(HOME .. '/.config/nvim/json-config/java.json')
 
-local dap = require("dap")
+--local dap = require("dap")
 -- ......................................... java
 -- executable: 表示 Java 调试器是一个可执行文件，这个文件通常是 Java 虚拟机（JVM）。你需要提供 command 属性，指定可执行文件的路径，以及可能的参数。
 -- server: 表示 Java 调试器是一个服务，可以通过指定的主机和端口进行连接。在这种情况下，你需要提供 host 和 port 属性。

@@ -3,20 +3,45 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Current File 2",
+      "name": "(java-8) Current File",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "mainClass": "${command:java.getMainClass}",
-      "vmArgs": "--enable-preview"
+      "mainClass": "${fileBasenameNoExtension}",
+      "vmArgs": "--enable-preview",
+      "jdkPath": "${env:HOME}/.sdkman/candidates/java/8.0.392-amzn",
+      "javaVersion": "8"
     },
     {
       "type": "java",
-      "name": "A 3",
+      "name": "(java-8) maven",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "mainClass": "A",
-      "projectName": "nvim_93f0f384",
-      "vmArgs": "--enable-preview"
+      "mainClass": "${fileBasenameNoExtension}",
+      "vmArgs": "--enable-preview",
+      "jdkPath": "${env:HOME}/.sdkman/candidates/java/8.0.392-amzn",
+      "javaVersion": "8",
+      "env": {
+        "SPRING_PROFILES_ACTIVE": "development",
+        "MAVEN_HOME": "${env:HOME}/.sdkman/candidates/maven/3.8.1",
+        "PATH": "${env:PATH}:${env:MAVEN_HOME}/bin"
+      },
+      "args": [],
+      "preLaunchTask": "maven-build"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "maven-build",
+      "type": "shell",
+      "command": "mvn",
+      "args": [
+        "clean",
+        "install"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }
