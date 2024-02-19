@@ -13,11 +13,21 @@
     },
     {
       "type": "java",
+      "name": "(java-8) business",
+      "request": "launch",
+      "mainClass": "cn.gt.traveller.module.business.BusinessServerApplication",
+      "jdkPath": "${env:HOME}/.sdkman/candidates/java/8.0.392-amzn",
+      "javaVersion": "8",
+      "classpath": [
+        "${env:HOME}/Download/lombok.jar"
+      ]
+    },
+    {
+      "type": "java",
       "name": "(java-8) maven",
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "mainClass": "${fileBasenameNoExtension}",
-      "vmArgs": "--enable-preview",
       "jdkPath": "${env:HOME}/.sdkman/candidates/java/8.0.392-amzn",
       "javaVersion": "8",
       "env": {

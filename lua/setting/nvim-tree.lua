@@ -10,18 +10,26 @@
 
 ]]--
 require("nvim-tree").setup({
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
+    sort = {
+        sorter = "case_sensitive",
+    },
+    view = {
+        width = 45,
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
+    actions = {
+        open_file = {
+            -- 首次打开大小适配
+            resize_window = true,
+            -- 打开文件时关闭
+            quit_on_open = true,
+        },
+    }
 })
 
 -- 禁用 vim 内置的文件浏览器插件 Netrw

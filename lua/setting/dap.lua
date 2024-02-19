@@ -21,9 +21,14 @@ request
     variables: 请求有关变量的信息。
 --]]
 
-local HOME = os.getenv "HOME"
--- 加载 json 配置文件
-require('dap.ext.vscode').load_launchjs(HOME .. '/.config/nvim/json-config/java.json')
+-- 方式 1 (成功): 加载 json 配置文件
+--local HOME = os.getenv "HOME"
+--require('dap.ext.vscode').load_launchjs(HOME .. '/.config/nvim/json-config/java.json')
+
+-- 方式 2:
+-- 使用 ftplugin/java.lua
+
+
 
 --local dap = require("dap")
 -- ......................................... java

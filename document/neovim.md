@@ -17,7 +17,7 @@
 - [x] https://juejin.cn/post/7244526264617730108 spring maven (安装时 java 版本有要求)
 - [ ] https://github.com/alpha2phi/neovim-for-beginner/blob/33-java-debug/after/ftplugin/java.lua spring 原版项目
 - [ ] 参考 https://github.com/mfussenegger/nvim-jdtls/discussions/585
-- [ ] https://blog.csdn.net/lxyoucan/article/details/123448313 成品例子
+- [ ] 1 https://blog.csdn.net/lxyoucan/article/details/123448313 成品例子
 - [ ] https://github.com/wenjinnn/config/tree/6c3a91c2c1071689025ff170803d70290954734b/nvim/plugin 成品例子
 - [ ] https://sookocheff.com/post/vim/neovim-java-ide/ 例子 英文
 - [ ] https://zhuanlan.zhihu.com/p/388397656 成品例子
@@ -698,6 +698,88 @@ java 跳转函数时报错
 解决办法:
 安装 mfussenegger/nvim-jdtls 插件
 ```
+
+##### 问题 6
+
+```
+2024-02-18 15:39:32.445 ERROR 32176 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problem: 
+        log cannot be resolved
+
+        at cn.gt.traveller.framework.mybatis.config.IdTypeEnvironmentPostProcessor.setIdType(IdTypeEnvironmentPostProcessor.java:68)
+        at cn.gt.traveller.framework.mybatis.config.IdTypeEnvironmentPostProcessor.postProcessEnvironment(IdTypeEnvironmentPostProcessor.java:59)
+        at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:102)
+        at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:87)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+        at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+        at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
+        at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
+        at java.util.ArrayList.forEach(ArrayList.java:1259)
+        at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
+        at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
+        at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
+        at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:343)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:301)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+        at cn.gt.traveller.module.business.BusinessServerApplication.main(BusinessServerApplication.java:22)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2024-02-18 15:39:32.448  WARN 32176 --- [       Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2024-02-18 15:39:32.448  WARN 32176 --- [       Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+
+[Process exited 0]
+
+
+
+```
+
+##### 问题 7
+
+```
+错误: 找不到或无法加载主类 cn.gt.traveller.module.business.BusinessServerApplication
+
+
+rm -rf */*/.classpath && rm -rf */.classpath && rm -rf */*/.project && rm -rf */.project && rm -rf .project && rm -rf .settings && rm -rf */.settings && rm -rf */*/.settings
+
+
+
+find . -name .classpath && find . -name .project && find . -name .settings
+```
+
+##### 问题 8
+
+```
+java.lang.Error: Unresolved compilation problem: 
+        log cannot be resolved
+
+
+
+版本问题? 
+
+```
+
+##### 问题 9
+
+```
+(具体哪个失败不确定, 没有规律)
+Could not resolve classpath and modulepath for traveller-module-infra-biz/cn.gt.traveller.module.infra.InfraServerApplication: Failed to resolve classpath: Referenced classpath provider does not exist: org.eclipse.m2e.launchconfig.classpathProvider
+
+
+解决办法: 手动执行 JdtUpdateDebugConfigs. 如果在 on_attach 中自动调用不一定成功
+config.on_attach = function(client, bufnr)
+    require('jdtls.dap').setup_dap_main_class_configs()
+end
+```
+
+
 
 ### vscode launch.json
 
