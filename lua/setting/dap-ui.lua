@@ -31,7 +31,7 @@ require("dapui").setup({
                 "watches",
             },
             size = 40,
-            position = "left",
+            position = "right",
         },
         {
             elements = {
@@ -96,13 +96,13 @@ vim.api.nvim_set_hl(0, "DapStopped", dap_breakpoint_color.stopped)
 
 local dap_breakpoint = {
     error = {
-        text = "",
+        text = "",
         texthl = "DapBreakpoint",
         linehl = "DapBreakpoint",
         numhl = "DapBreakpoint",
     },
     condition = {
-        text = "ﳁ",
+        text = "",
         texthl = "DapBreakpoint",
         linehl = "DapBreakpoint",
         numhl = "DapBreakpoint",
@@ -126,7 +126,7 @@ local dap_breakpoint = {
         numhl = "DapStopped",
     },
 }
-vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+vim.fn.sign_define("DapBreakpoint", dap_breakpoint.condition)
 vim.fn.sign_define("DapBreakpointCondition", dap_breakpoint.condition)
 vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
 vim.fn.sign_define("DapLogPoint", dap_breakpoint.logpoint)

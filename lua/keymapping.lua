@@ -10,11 +10,7 @@ map("n", "<M-up>", "<cmd>resize -2<CR>", opt)
 map("n", "<M-down>", "<cmd>resize +2<CR>", opt)
 map("n", "<M-left>", "<cmd>vertical resize -3<CR>", opt)
 map("n", "<M-right>", "<cmd>vertical resize +3<CR>", opt)
--- 分屏切换
-map("n", "<M-l>", "<c-w>l", opt)
-map("n", "<M-h>", "<c-w>h", opt)
-map("n", "<M-j>", "<c-w>j", opt)
-map("n", "<M-k>", "<c-w>k", opt)
+
 
 -- ......................................... bufferline
 map("n", "<leader>[", "<cmd>BufferLineCyclePrev<CR>", opt)
@@ -44,6 +40,7 @@ map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opt) -- 文本搜索
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opt) -- 搜索帮助信息
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opt) -- 历史文件搜索
 map("n", "<leader>fp", "<cmd>Telescope project<CR>", opt)
+map("n", "<leader>fn", "<cmd>Telescope notify<CR>", opt) -- 通知信息
 -- map('n', '<leader>fm', '<cmd>Telescope media_files<CR>', opt) -- mac 系统不支持
 
 -- ......................................... nvimTree
@@ -74,6 +71,12 @@ map("n", "<M-H>", "<cmd>WinShift left<CR>", opt)
 map("n", "<M-J>", "<cmd>WinShift down<CR>", opt)
 map("n", "<M-K>", "<cmd>WinShift up<CR>", opt)
 map("n", "<M-L>", "<cmd>WinShift right<CR>", opt)
+
+-- ......................................... windows.nvim (窗口大小调整)
+map("n", "<leader>mm", "<cmd>WindowsMaximize<CR>", opt)
+map("n", "<leader>me", "<cmd>WindowsEqualize<CR>", opt)
+map("n", "<leader>mv", "<cmd>WindowsMaximizeVertically<CR>", opt)
+map("n", "<leader>mh", "<cmd>WindowsMaximizeHorizontally<CR>", opt)
 
 -- ......................................... 函数名地图
 map("n", "<leader>tr", "<cmd>SymbolsOutline<CR>", opt)

@@ -16,10 +16,11 @@ help c python java json yaml vim comment lua go make markdown LLVM
 代码格式化 { }
     zc  折叠代码
     zo  打开
+    markdown markdown_inline
 --]]
 require('nvim-treesitter.configs').setup({
     -- 默认安装的解析器
-    ensure_installed = { 'lua', 'python', 'java', 'go'},
+    ensure_installed = { 'lua', 'python', 'java', 'go', 'markdown', 'markdown_inline', 'regex', 'bash' },
     -- 开启默认安装
     sync_install = false,
     -- 打开 buffer 时自动安装没有的解析器

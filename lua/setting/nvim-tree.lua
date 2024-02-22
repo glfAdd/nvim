@@ -15,6 +15,7 @@ require("nvim-tree").setup({
     },
     view = {
         width = 45,
+        side = "left", -- left right
     },
     renderer = {
         group_empty = true,
@@ -35,5 +36,4 @@ require("nvim-tree").setup({
 -- 禁用 vim 内置的文件浏览器插件 Netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
--- 启用终端的真彩色支持
-vim.opt.termguicolors = true
+vim.opt.termguicolors = true -- 启用终端的真彩色支持

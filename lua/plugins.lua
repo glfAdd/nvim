@@ -9,6 +9,10 @@ return require("packer").startup(function(use)
     use { 'nvim-tree/nvim-web-devicons', config = function()
         require("setting.nvim-web-devicons")
     end }
+    -- 页面增强
+    use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" }, config = function()
+        require("setting.noice")
+    end }
     -- ......................................... 启动页面
     use { "goolord/alpha-nvim", requires = { 'nvim-tree/nvim-web-devicons' }, config = function()
         require("setting.alpha-nvim")
@@ -133,6 +137,10 @@ return require("packer").startup(function(use)
     -- 窗口移动
     use { "sindrets/winshift.nvim", config = function()
         require("setting.winshift")
+    end }
+    -- 窗口大小调整
+    use { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = function()
+        require("setting.windows")
     end }
     -- ......................................... 启动时间统计
     -- :startuptime

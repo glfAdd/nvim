@@ -24,7 +24,9 @@
 - [ ] https://cloud.tencent.com/developer/article/2203813 dap 使用 (重点)
 - [ ] https://cloud.tencent.com/developer/search/article-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AEvim 系列
 - [ ] https://blog.csdn.net/lanuage/article/details/128477039 dap
-- [ ] 
+- [ ] https://zhuanlan.zhihu.com/p/573556512  lspsaga
+- [ ] https://zhuanlan.zhihu.com/p/567799705?utm_id=0 neovim + tmux + fish 
+- [ ] https://github.com/ADkun/lvim-config-suggest/blob/main/README.md 插件对比汇总
 
 插件安装慢配置 github host
 
@@ -271,6 +273,15 @@ $ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/n
 但通常无论 安装 还是 更新 插件，我只需要下边这一条命令就够了。
 
 :PackerSync
+```
+
+##### noice.nvim - 页面增强
+
+[github](https://github.com/folke/noice.nvim)
+
+```
+
+
 ```
 
 ##### gruvbox.nvim - 主题
@@ -523,8 +534,6 @@ Console (终端控制台)
 元素 ID：console
 ```
 
-
-
 ##### formatter.nvim - 代码格式化
 
 [github](https://github.com/mhartington/formatter.nvim)
@@ -533,6 +542,10 @@ Console (终端控制台)
 参考
 https://www.cnblogs.com/SR-Program/p/15773546.html
 ```
+
+##### hop.nvim - 快速跳转单词
+
+[github](https://github.com/hadronized/hop.nvim)
 
 ##### telescope.nvim - 模糊查询
 
@@ -583,13 +596,50 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 [github](https://github.com/akinsho/toggleterm.nvim)
 
-##### voldikss/vim-floaterm - 嵌套窗口
-
-[github](https://github.com/voldikss/vim-floaterm)
+- [ ] https://cloud.tencent.com/developer/article/2125948
+- [ ] 
 
 ##### winshift.nvim  - 移动窗口
 
 [github](https://github.com/sindrets/winshift.nvim)
+
+##### windows.nvim - 窗口大小
+
+[github](https://github.com/anuvyklack/windows.nvim)
+
+```
+:WindowsMaximize
+最大化当前窗口。如果窗口已经最大化，则恢复原始大小。当转到另一个窗口，而当前是最大的-所有原始大小将恢复。如果窗口在被最大化时关闭，那么所有其他窗口将被均衡
+
+:WindowsMaximizeVertically
+使当前窗口的宽度最大化。几乎与:垂直调整大小相同(参见:help CTRL-W_bar)，但带有动画。
+
+:WindowsMaximizeHorizontally
+使当前窗口的高度最大化。几乎与:调整大小相同(参见:help CTRL-W__)，但带有动画。
+
+
+:WindowsEqualize
+平衡所有窗口的高度和宽度动画。(参见:help CTRL-W_=)
+
+
+:WindowsEnableAutowidth
+:WindowsDisableAutowidth
+:WindowsToggleAutowidth
+```
+
+##### nvim-notify - 消息弹框
+
+[github](https://github.com/rcarriga/nvim-notify)
+
+```
+发送简单通知
+:lua require('notify')("Hello, this is a notification message!")
+:lua require('notify').notify("Hello, this is a notification message!", "top_left", {timeout = 10000})
+
+消息历史
+:Telescope notify
+:Notifications
+```
 
 ##### trouble.nvim - 语法错误列表
 
@@ -607,8 +657,6 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 :source Session.vim
 ```
 
-
-
 ### springboot
 
 ```
@@ -617,17 +665,220 @@ https://github.com/microsoft/java-debug
 
 ```
 
-##### dap java
+### tmux
+
+##### 安装
+
+```bash
+$ brew install tmux
+```
+
+##### 配置
+
+> 配置文件为 ~/.tmux.conf
 
 ```
-mkdir -p ~/.config/nvim/pack/github/start
-cd ~/.config/nvim/pack/github/start
-git clone https://github.com/ggandor/nvim-maven-invoker.git
+自定义状态栏
 
+set -g status-utf8 on # 状态栏支持utf8
+set -g status-interval 1 # 状态栏刷新时间
+set -g status-justify left # 状态栏列表左对齐
+setw -g monitor-activity on # 非当前窗口有内容更新时在状态栏通知
+
+set -g status-bg black # 设置状态栏背景黑色
+set -g status-fg yellow # 设置状态栏前景黄色
+set -g status-style "bg=black, fg=yellow" # 状态栏前景背景色
+
+set -g status-left "#[bg=#FF661D] ❐ #S " # 状态栏左侧内容
+set -g status-right 'Continuum status: #{continuum_status}' # 状态栏右侧内容
+set -g status-left-length 300 # 状态栏左边长度300
+set -g status-right-length 500 # 状态栏左边长度500
+
+set -wg window-status-format " #I #W " # 状态栏窗口名称格式
+set -wg window-status-current-format " #I:#W#F " # 状态栏当前窗口名称格式(#I：序号，#w：窗口名称，#F：间隔符)
+set -wg window-status-separator "" # 状态栏窗口名称之间的间隔
+set -wg window-status-current-style "bg=red" # 状态栏当前窗口名称的样式
+set -wg window-status-last-style "fg=red" # 状态栏最后一个窗口名称的样式
+
+set -g message-style "bg=#202529, fg=#91A8BA" # 指定消息通知的前景、后景色
+```
 
 
 
 ```
+set -g prefix C-a #
+unbind C-b # C-b即Ctrl+b键，unbind意味着解除绑定
+bind C-a send-prefix # 绑定Ctrl+a为新的指令前缀
+
+# 从tmux v1.6版起，支持设置第二个指令前缀
+set-option -g prefix2 ` # 设置一个不常用的`键作为指令前缀，按键更快些
+
+
+
+setw -g mode-mouse on # 支持鼠标选取文本等
+setw -g mouse-resize-pane on # 支持鼠标拖动调整面板的大小(通过拖动面板间的分割线)
+setw -g mouse-select-pane on # 支持鼠标选中并切换面板
+setw -g mouse-select-window on # 支持鼠标选中并切换窗口(通过点击状态栏窗口名称)
+
+# 绑定hjkl键为面板切换的上下左右键
+bind -r k select-pane -U # 绑定k为↑
+bind -r j select-pane -D # 绑定j为↓
+bind -r h select-pane -L # 绑定h为←
+bind -r l select-pane -R # 绑定l为→
+
+bind -r e lastp # 选择最后一个面板
+bind -r ^e last # 选择最后一个窗口
+
+bind -r ^u swapp -U # 与前一个面板交换位置
+bind -r ^d swapp -D # 与后一个面板交换位置
+
+
+tmux list-buffers # 展示所有的 buffers
+tmux show-buffer [-b buffer-name] # 显示指定的 buffer 内容
+tmux choose-buffer # 进入 buffer 选择页面(支持jk上下移动选择，回车选中并粘贴 buffer 内容到面板上)
+tmux set-buffer # 设置buffer内容
+tmux load-buffer [-b buffer-name] file-path # 从文件中加载文本到buffer缓存
+tmux save-buffer [-a] [-b buffer-name] path # 保存tmux的buffer缓存到本地
+tmux paste-buffer # 粘贴buffer内容到会话中
+tmux delete-buffer [-b buffer-name] # 删除指定名称的buffer
+
+
+# buffer缓存复制到Mac系统粘贴板
+bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+# Mac系统粘贴板内容复制到会话
+bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - \; paste-buffer -d"
+
+
+
+```
+
+##### 插件
+
+```
+https://github.com/tmux-plugins/tmux-resurrect
+
+https://github.com/tmux-plugins/tmux-continuum
+https://github.com/tmux-plugins/tpm
+
+
+
+终端模拟器
+https://github.com/alacritty/alacritty
+
+
+brew install --cask alacritty
+
+
+```
+
+##### 快捷键
+
+```bash
+session
+tmux ls                           # 列出 所有 session
+tmux or tmux new -s my_session    # 创建 一个新的 session
+tmux attach-session -t 0          # 重连 一个session 0（by number）
+'Ctrl+b' d                        # 断开 当前 session
+
+window
+'Ctrl+b' s                        # 列出 所有 window
+'Ctrl+b' c                        # 创建 一个新的 window
+'Ctrl+b' 0                        # 选择 一个 window 0（by number）
+'Ctrl+b' x                        # 关闭 一个 window or pane
+'Ctrl+b' ,                        # 重命名 一个 window
+
+pane
+'Ctrl+b' %                        # 水平 将 1 个 pane 切分成 2 个 pane
+'Ctrl+b' "                        # 垂直 将 1 个 pane 切分成 2 个 pane
+'Ctrl+b' h                        # 选择 左边 pane，同 vim 命令
+'Ctrl+b' l                        # 选择 右边 pane
+'Ctrl+b' j                        # 选择 下边 pane
+'Ctrl+b' k                        # 选择 上边 pane
+```
+
+```bash
+tmux 													# 新建一个无名称的会话
+tmux new -s aaaa 							# 新建一个名称为demo的会话
+tmux detach 									# 断开当前会话，会话在后台运行
+tmux a 												# 默认进入第一个会话
+tmux a -t demo 								# 进入到名称为demo的会话
+tmux kill-session -t aaaa 		# 关闭 aaaa 会话
+tmux kill-server 							# 关闭服务器，所有的会话都将关闭
+tmux list-session 						# 查看所有会话
+tmux ls 											# 查看所有会话，提倡使用简写形式
+
+kill-pane
+kill-server
+kill-session
+kill-window
+```
+
+session
+
+| 前缀     | 指令     | 描述                                     |
+| -------- | -------- | ---------------------------------------- |
+| `Ctrl+b` | `?`      | 显示快捷键帮助文档                       |
+| `Ctrl+b` | `d`      | 断开当前会话                             |
+| `Ctrl+b` | `D`      | 选择要断开的会话                         |
+| `Ctrl+b` | `Ctrl+z` | 挂起当前会话                             |
+| `Ctrl+b` | `r`      | 强制重载当前会话                         |
+| `Ctrl+b` | `s`      | 显示会话列表用于选择并切换               |
+| `Ctrl+b` | `:`      | 进入命令行模式，此时可直接输入`ls`等命令 |
+| `Ctrl+b` | `[`      | 进入复制模式，按`q`退出                  |
+| `Ctrl+b` | `]`      | 粘贴复制模式中复制的文本                 |
+| `Ctrl+b` | `~`      | 列出提示信息缓存                         |
+
+window
+
+| 前缀     | 指令  | 描述                                       |
+| -------- | ----- | ------------------------------------------ |
+| `Ctrl+b` | `c`   | 新建窗口                                   |
+| `Ctrl+b` | `&`   | 关闭当前窗口（关闭前需输入`y` or `n`确认） |
+| `Ctrl+b` | `0~9` | 切换到指定窗口                             |
+| `Ctrl+b` | `p`   | 切换到上一窗口                             |
+| `Ctrl+b` | `n`   | 切换到下一窗口                             |
+| `Ctrl+b` | `w`   | 打开窗口列表，用于且切换窗口               |
+| `Ctrl+b` | `,`   | 重命名当前窗口                             |
+| `Ctrl+b` | `.`   | 修改当前窗口编号（适用于窗口重新排序）     |
+| `Ctrl+b` | `f`   | 快速定位到窗口（输入关键字匹配窗口名称）   |
+
+pane
+
+| 前缀     | 指令          | 描述                                                         |
+| -------- | ------------- | ------------------------------------------------------------ |
+| `Ctrl+b` | `"`           | 当前面板上下一分为二，下侧新建面板                           |
+| `Ctrl+b` | `%`           | 当前面板左右一分为二，右侧新建面板                           |
+| `Ctrl+b` | `x`           | 关闭当前面板（关闭前需输入`y` or `n`确认）                   |
+| `Ctrl+b` | `z`           | 最大化当前面板，再重复一次按键后恢复正常（v1.8版本新增）     |
+| `Ctrl+b` | `!`           | 将当前面板移动到新的窗口打开（原窗口中存在两个及以上面板有效） |
+| `Ctrl+b` | `;`           | 切换到最后一次使用的面板                                     |
+| `Ctrl+b` | `q`           | 显示面板编号，在编号消失前输入对应的数字可切换到相应的面板   |
+| `Ctrl+b` | `{`           | 向前置换当前面板                                             |
+| `Ctrl+b` | `}`           | 向后置换当前面板                                             |
+| `Ctrl+b` | `Ctrl+o`      | 顺时针旋转当前窗口中的所有面板                               |
+| `Ctrl+b` | `方向键`      | 移动光标切换面板                                             |
+| `Ctrl+b` | `o`           | 选择下一面板                                                 |
+| `Ctrl+b` | `空格键`      | 在自带的面板布局中循环切换                                   |
+| `Ctrl+b` | `Alt+方向键`  | 以5个单元格为单位调整当前面板边缘                            |
+| `Ctrl+b` | `Ctrl+方向键` | 以1个单元格为单位调整当前面板边缘（Mac下被系统快捷键覆盖）   |
+| `Ctrl+b` | `t`           | 显示时钟                                                     |
+
+### fish
+
+```bash
+$ brew install fish
+$ fish # 启动fish
+```
+
+https://zhuanlan.zhihu.com/p/558065274?utm_id=0
+
+https://github.com/otavioschwanck/tmux-awesome-manager.nvim
+
+https://github.com/otavioschwanck/mood-nvim
+
+
+
+
 
 
 
