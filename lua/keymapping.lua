@@ -93,34 +93,23 @@ map("n", "<leader>eq", "<cmd>Trouble quickfix<CR>", opt)
 map("n", "<leader>er", "<cmd>Trouble lsp_references<CR>", opt)
 
 -- ......................................... lsp
--- 跳转到定义(悬浮窗口)
-map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt) -- 跳转到定义(悬浮窗口)
 map("n", "g2", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
 map("n", "g3", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
--- 定义和引用文件查找
-map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opt)
--- 定义列表
-map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt)
--- 引用列表
-map("n", "<leader>lrf", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
--- 重命名
-map("n", "gr", "<cmd>Lspsaga rename<CR>", opt)
--- 跳转到实现
-map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
--- 智能修复
-map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
--- 跳到上一个错误
-map("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
--- 跳到下一个错误
-map("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
--- 悬浮文档
-map("n", "gk", "<cmd>Lspsaga hover_doc<CR>", opt)
+map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opt) -- 定义和引用文件查找
+map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt) -- 定义列表
+map("n", "<leader>lrf", "<cmd>lua vim.lsp.buf.references()<CR>", opt) -- 引用列表
+map("n", "gr", "<cmd>Lspsaga rename<CR>", opt) -- 重命名
+map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt) -- 跳转到实现
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt) -- 智能修复
+map("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt) -- 跳到上一个错误
+map("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt) -- 跳到下一个错误
+map("n", "gk", "<cmd>Lspsaga hover_doc<CR>", opt) -- 悬浮文档
 -- -- 打开终端
 -- map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", opt)
 -- -- 关闭终端
 -- map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], opt)
--- 右边函数变量列表
-map("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opt)
+map("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opt) -- 右边函数变量列表
 
 -- 只跳转到错
 keymap("n", "[E", function()
@@ -177,7 +166,6 @@ end
 -- 使这些按键用于 toggle
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 map("n", "<leader>ht", ":ToggleTermToggleAll<CR>", opt)
-
 
 -- ......................................... hop 快速选择单词
 --map("n", "<M-u>", '<cmd>HopChar1MW<CR>', opt)

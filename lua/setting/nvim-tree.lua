@@ -28,7 +28,7 @@ require("nvim-tree").setup({
             -- 首次打开大小适配
             resize_window = true,
             -- 打开文件时关闭
-            quit_on_open = true,
+            quit_on_open = false,
         },
     }
 })
@@ -36,4 +36,3 @@ require("nvim-tree").setup({
 -- 禁用 vim 内置的文件浏览器插件 Netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true -- 启用终端的真彩色支持

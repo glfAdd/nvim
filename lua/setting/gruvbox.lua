@@ -31,8 +31,6 @@ require("gruvbox").setup({
 
 vim.cmd("colorscheme gruvbox")
 vim.opt.background = "dark" -- light dark
-vim.opt.termguicolors = true
-vim.opt.termguicolors = true
 
 -- 设置 buffer 颜色
 -- BufferLineTab: 未选中的标签的颜色，背景使用 #1E1E1E（黑色），前景使用 #FFFFFF（白色）。

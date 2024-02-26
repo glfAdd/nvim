@@ -55,6 +55,9 @@ nvim 配置文件路径
 ```bash
 $ brew tap homebrew/cask-fonts
 $ brew install font-hack-nerd-font
+
+$ brew install neovim-qt
+$ nvim-qt
 ```
 
 ##### 环境
@@ -423,6 +426,8 @@ LSP 服务器、DAP 服务器、 通过单个界面进行短绒检查和格式�
 
 [github](https://github.com/mfussenegger/nvim-jdtls)
 
+[配置例子](https://github.com/mfussenegger/nvim-jdtls/wiki/Sample-Configurations)
+
 ```
 添加 Lombok 支持 ()
 官网 https://projectlombok.org/
@@ -485,6 +490,14 @@ LSP 服务器、DAP 服务器、 通过单个界面进行短绒检查和格式�
    $ cd vscode-java-test
    $ npm install && npm run build-plugin
    ```
+
+3. 更新配置
+
+   ```
+   :JdtUpdateDebugConfig
+   ```
+
+   
 
 ###### python
 
@@ -661,8 +674,6 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 ```
 https://github.com/microsoft/java-debug
-
-
 ```
 
 ### tmux
@@ -892,7 +903,7 @@ https://github.com/folke/flash.nvim
 
 https://github.com/nvim-java/nvim-java
 
-
+https://github.com/Asthestarsfalll/img2art/ ascii 艺术字
 
 
 
@@ -989,20 +1000,19 @@ java.lang.Error: Unresolved compilation problem:
 [Process exited 0]
 
 
-
 ```
 
 ##### 问题 7
 
-```
+```bash
 错误: 找不到或无法加载主类 cn.gt.traveller.module.business.BusinessServerApplication
 
 
-rm -rf */*/.classpath && rm -rf */.classpath && rm -rf */*/.project && rm -rf */.project && rm -rf .project && rm -rf .settings && rm -rf */.settings && rm -rf */*/.settings
+$ rm -rf */*/.classpath && rm -rf */.classpath && rm -rf */*/.project && rm -rf */.project && rm -rf .project && rm -rf .settings && rm -rf */.settings && rm -rf */*/.settings rm -rf */*/target && rm -rf */*/*/target && rm -rf */target
 
 
-
-find . -name .classpath && find . -name .project && find . -name .settings
+$ find . -name .classpath && find . -name .project && find . -name .settings && find . -name target
+ 
 ```
 
 ##### 问题 8
@@ -1059,7 +1069,29 @@ end
 "justMyCode"：设置为 true 时，只调试自己的代码。
 ```
 
+### 艺术字模块
 
+[github](https://github.com/Asthestarsfalll/img2art)
+
+```bash
+$ pip install img2art
+
+$ img2art path/to/image --scale 0.5 --with-color --threshold 127 --bg-color 255, 255, 255 --save-raw path/to/save.txt
+
+$ img2art  123.jpg --with-color --threshold 127  --save-raw 1.txt
+```
+
+### 终端显示图片
+
+> mac iterm2 终端 显示图片
+>
+> [官网地址](https://iterm2.com/documentation-images.html)
+
+```bash
+$ curl https://iterm2.com/utilities/imgcat > imgcat
+$ chmod +x imgcat
+$ sudo mv imgcat /usr/local/bin
+```
 
 # 开发项目
 

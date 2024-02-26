@@ -1,38 +1,3 @@
-local a = {
-    [[                ████▌█████▌█ ████████▐▀██▀  ]],
-    [[              ▄█████ █████▌ █ ▀██████▌█▄▄▀▄ ]],
-    [[              ▌███▌█ ▐███▌▌  ▄▄ ▌█▌███▐███ ▀]],
-    [[             ▐ ▐██  ▄▄▐▀█   ▐▄█▀▌█▐███▐█    ]],
-    [[               ███ ▌▄█▌  ▀  ▀██  ▀██████▌   ]],
-    [[                ▀█▌▀██▀ ▄         ███▐███   ]],
-    [[                 ██▌             ▐███████▌  ]],
-    [[                 ███     ▀█▀     ▐██▐███▀▌  ]],
-    [[                 ▌█▌█▄         ▄▄████▀ ▀    ]],
-    [[                   █▀██▄▄▄ ▄▄▀▀▒█▀█         ]],
-}
-local b = {
-    [[            ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣴⣶⣶⣶⣶⣶⠶⣶⣤⣤⣀⠀⠀⠀⠀⠀⠀ ]],
-    [[          ⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⠁⠀⢀⠈⢿⢀⣀⠀⠹⣿⣿⣿⣦⣄⠀⠀⠀ ]],
-    [[          ⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⠿⠀⠀⣟⡇⢘⣾⣽⠀⠀⡏⠉⠙⢛⣿⣷⡖⠀ ]],
-    [[          ⠀⠀⠀⠀⠀⣾⣿⣿⡿⠿⠷⠶⠤⠙⠒⠀⠒⢻⣿⣿⡷⠋⠀⠴⠞⠋⠁⢙⣿⣄ ]],
-    [[          ⠀⠀⠀⠀⢸⣿⣿⣯⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⠉⢹⡄⠀⠀⠀⠛⠛⠋⠉⠹⡇ ]],
-    [[          ⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣼⣇⣀⣀⣀⣛⣛⣒⣲⢾⡷ ]],
-    [[          ⢀⠤⠒⠒⢼⣿⣿⠶⠞⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⣼⠃ ]],
-    [[          ⢮⠀⠀⠀⠀⣿⣿⣆⠀⠀⠻⣿⡿⠛⠉⠉⠁⠀⠉⠉⠛⠿⣿⣿⠟⠁⠀⣼⠃⠀ ]],
-    [[          ⠈⠓⠶⣶⣾⣿⣿⣿⣧⡀⠀⠈⠒⢤⣀⣀⡀⠀⠀⣀⣀⡠⠚⠁⠀⢀⡼⠃⠀⠀ ]],
-    [[          ⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣤⣭⣭⣭⣭⣭⣥⣤⣤⣤⣴⣟⠁    ]],
-}
-local c = {
-    [[                    ▀████▀▄▄              ▄█ ]],
-    [[                      █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
-    [[              ▄        █          ▀▀▀▀▄  ▄▀  ]],
-    [[             ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
-    [[            ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
-    [[            ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
-    [[             ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
-    [[              █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
-    [[             █   █  █      ▄▄           ▄▀   ]],
-}
 local e = {
     [[                  ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ]],
     [[                   ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ]],
@@ -92,13 +57,13 @@ local g = {
 }
 
 -- ......................................... 自定义 vim-startify 样式
-local alpha = require("alpha")
-local startify = require("alpha.themes.startify")
-startify.section.header.val = g
-startify.section.header.opts = {
-    position = "center", -- left center right
-}
-alpha.setup(startify.config)
+--local alpha = require("alpha")
+--local startify = require("alpha.themes.startify")
+--startify.section.header.val = g
+--startify.section.header.opts = {
+--    position = "left", -- left center right
+--}
+--alpha.setup(startify.config)
 
 -- ......................................... 使用 vim-startify 的默认样式
 -- require("alpha").setup(require("alpha.themes.startify").config)
@@ -110,3 +75,24 @@ alpha.setup(startify.config)
 -- dashboard.section.footer.val = {
 -- 	"Highlord Mograine . The Ashbringer",
 -- }
+
+-- ......................................... 使用另一种样式 (加载 ascii 艺术字)
+local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
+require("alpha.term")
+
+dashboard.opts.opts.noautocmd = true
+dashboard.section.terminal.opts.redraw = true
+dashboard.section.terminal.command = "cat ~/.config/nvim/ascii_art/1.txt"
+dashboard.section.terminal.width = 96
+dashboard.section.terminal.height = 41
+dashboard.section.terminal.opts.window_config.border = nil -- 边框 (nil | rounded)
+
+dashboard.opts.layout = {
+    { type = "padding", val = 2 },
+    dashboard.section.terminal,
+    { type = "padding", val = 4 },
+    dashboard.section.buttons,
+    dashboard.section.footer,
+}
+alpha.setup(dashboard.config)

@@ -13,6 +13,8 @@ return require("packer").startup(function(use)
     use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" }, config = function()
         require("setting.noice")
     end }
+    -- ......................................... 文件类型
+    use("nathom/filetype.nvim")
     -- ......................................... 启动页面
     use { "goolord/alpha-nvim", requires = { 'nvim-tree/nvim-web-devicons' }, config = function()
         require("setting.alpha-nvim")
@@ -56,11 +58,7 @@ return require("packer").startup(function(use)
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } -- 模糊查询
     use { "nvim-telescope/telescope-fzf-writer.nvim" }
     use { "nvim-telescope/telescope-hop.nvim" }
-    use { 'sudormrfbin/cheatsheet.nvim', requires = {
-        { 'nvim-telescope/telescope.nvim' },
-        { 'nvim-lua/popup.nvim' },
-        { 'nvim-lua/plenary.nvim' } }
-    }
+    use { 'sudormrfbin/cheatsheet.nvim', requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } }
     --use { 'tami5/sqlite.lua' } -- 搜做结果排序优化 (依赖)
     -- 搜做结果排序优化
     use { "nvim-telescope/telescope-frecency.nvim", config = function()
@@ -156,9 +154,9 @@ return require("packer").startup(function(use)
         require("setting.hop-nvim")
     end }
     -- ......................................... 代码格式化
-    use { "mhartington/formatter.nvim", config = function()
-        require("setting.formatter")
-    end }
+    --use { "mhartington/formatter.nvim", config = function()
+    --    require("setting.formatter")
+    --end }
     -- ......................................... dap
     -- 自动加载 ftplugin 目录下 .lua 的语言配置文件
     use { "mfussenegger/nvim-dap", config = function()

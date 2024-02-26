@@ -82,4 +82,4 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 
 vim.o.clipboard = "unnamedplus" -- 打通 nvim 和系统剪切板
-
+vim.opt.termguicolors = true -- 启用终端的真彩色支持
